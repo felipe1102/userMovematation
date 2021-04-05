@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\UserMovement;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -52,6 +53,13 @@ class UserController extends Controller
             return response()->json([
                 'message'   => $validator->errors()->first(),
                 'errors'    => 'Dados invalidos'
+            ], 400);
+        }
+
+        $userAge = Carbon::create($request->birthday)->diffInYears(Carbon::now());
+        if ($userAge < 18){
+            return response()->json([
+                'message'   => "Apenas maiores de 18 anos podem se cadastrar",
             ], 400);
         }
 
@@ -163,7 +171,7 @@ class UserController extends Controller
             ], 404);
         }
 
-        if (!$user->movement->isEmpty()){
+        if (!$user->movement->isEmpty() || !is_null($user->opening_balance)){
             return response()->json([
                 'message'   => "Este usuário não pode ser deletado, pois contem movimentações em seu registro"
             ], 400);
