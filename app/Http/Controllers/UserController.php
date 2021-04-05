@@ -168,4 +168,39 @@ class UserController extends Controller
         ], 200);
 
     }
+
+    public function changeBalance(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'value' => 'required|numeric',
+        ]);
+        if($validator->fails()) {
+            return response()->json([
+                'message'   => $validator->errors()->first(),
+                'errors'    => 'Dados invalidos'
+            ], 400);
+        }
+
+        $user = User::find($id);
+        if (!$user){
+            return response()->json([
+                'message'   => 'Usuário não encontrado',
+            ], 404);
+        }
+
+        DB::beginTransaction();
+        try {
+            $user->update(['opening_balance' => $request->value]);
+            DB::commit();
+            return response()->json([
+                'message' => 'Saldo inserido com sucesso',
+                'data' => $user
+            ], 201);
+        }catch (\Exception $error) {
+            DB::rollBack();
+            return response()->json([
+                'message' => $error->getMessage(),
+                'errors'    => 'Ocorreu algum problema'
+            ], 500);
+        }
+    }
 }
