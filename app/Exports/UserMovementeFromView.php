@@ -28,7 +28,8 @@ class UserMovementeFromView implements FromView
         $data = $this->getMovementFilter($this->filter);
 
         return view('exports.movementationsTable', [
-            'movements' => $data
+            'movements' => $data,
+            'user'=> Auth::user()
         ]);
     }
 
