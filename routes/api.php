@@ -27,6 +27,7 @@ Route::prefix('v1')->group(function () {
 
         Route::prefix('users')->group(function () {
             Route::get("/report", [UserController::class, 'report']);
+
             Route::post("/", [UserController::class, 'store']);
             Route::get("/", [UserController::class, 'index']);
             Route::get("/{id}", [UserController::class, 'show']);

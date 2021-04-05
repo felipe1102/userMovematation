@@ -163,11 +163,26 @@ class UserController extends Controller
             ], 404);
         }
 
-        $user->delete();
+        if (!$user->movement->isEmpty()){
+            return response()->json([
+                'message'   => "Este usuário não pode ser deletado, pois contem movimentações em seu registro"
+            ], 400);
+        }
 
-        return response()->json([
-            'message' => 'Usuário do id '.$id.' deletado',
-        ], 200);
+        DB::beginTransaction();
+        try{
+            $user->delete();
+            DB::commit();
+            return response()->json([
+                'message' => 'Usuário do id '.$id.' deletado',
+            ], 200);
+        }catch (\Exception $error) {
+            DB::rollBack();
+            return response()->json([
+                'message' => $error->getMessage(),
+                'errors'    => 'Ocorreu algum problema'
+            ], 500);
+        }
 
     }
 
