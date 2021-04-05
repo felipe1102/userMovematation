@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    //return view('welcome');
+    return response()->json(['message' => 'API teste', 'created by' => 'Felipe Moreira de Castro']);
 });
+
