@@ -34,9 +34,13 @@ Route::prefix('v1')->group(function () {
         });
 
         Route::prefix('movements')->group(function () {
+            Route::get("/", [UserMovementController::class, 'index']);
             Route::post("/", [UserMovementController::class, 'store']);
             Route::put("/{id}/reversal", [UserMovementController::class, 'update']);
             Route::delete("/{id}", [UserMovementController::class, 'destroy']);
+
+            Route::get("/excel", [UserMovementController::class, 'excelMovement']);
+
         });
     });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UserMovementeFromView;
 use App\Models\User;
 use App\Models\UserMovement;
 use Illuminate\Database\Query\Builder;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserMovementController extends Controller
 {
@@ -19,7 +21,12 @@ class UserMovementController extends Controller
      */
     public function index()
     {
-        //
+        $movimentation = UserMovement::where("id_user", Auth::user()->id);
+        return response()->json([
+            'message' => 'Movimentações encontradas',
+            'data' => $movimentation->paginate(50)
+        ], 201);
+
     }
 
 
@@ -142,5 +149,9 @@ class UserMovementController extends Controller
                 'errors'    => 'Ocorreu algum problema'
             ], 500);
         }
+    }
+
+    public function excelMovement(){
+        return Excel::download(new UserMovementeFromView, "relatorio.csv");
     }
 }
