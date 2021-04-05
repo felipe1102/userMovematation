@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserMovement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -202,5 +204,21 @@ class UserController extends Controller
                 'errors'    => 'Ocorreu algum problema'
             ], 500);
         }
+    }
+
+    public function report(){
+        $debit = UserMovement::where("id_user", Auth::user()->id)->where("type", "debit")->where("reversed", 0)->sum('value');
+        $credit = UserMovement::where("id_user", Auth::user()->id)->where("type", "credit")->where("reversed", 0)->sum('value');
+        $reversed = UserMovement::where("id_user", Auth::user()->id)->where("reversed", 0)->sum('value');
+        $openingBalanceUser = Auth::user()->opening_balance;
+
+        return response()->json([
+            'data' => [
+                "debit" => $debit,
+                "credit" => $credit,
+                "reversed" => $reversed,
+                "openingBalanceUser" => $openingBalanceUser
+            ]
+        ], 201);
     }
 }
