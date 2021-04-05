@@ -14,7 +14,7 @@
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->birthday }}</td>
+            <td>{{ Carbon\Carbon::parse($user->birthday)->format('d/m/Y')}}</td>
             <td>{{ number_format($user->opening_balance, 2, ',', '.') }}</td>
         </tr>
     </tbody>
@@ -35,7 +35,7 @@
                 <td>{{ number_format($movement->value, 2, ',', '.') }}</td>
                 <td>{{ $movement->type }}</td>
                 <td>{{ $movement->reversed ? "sim": "não" }}</td>
-                <td>{{ $movement->created_at->format('d/m/Y') }}</td>
+                <td>{{ Carbon\Carbon::parse($movement->created_at)->format('d/m/Y') }}</td>
             </tr>
         @endforeach
     </tbody>
