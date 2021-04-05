@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\UserMovementeFromView;
 use App\Models\User;
 use App\Models\UserMovement;
+use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -151,7 +152,7 @@ class UserMovementController extends Controller
         }
     }
 
-    public function excelMovement(){
-        return Excel::download(new UserMovementeFromView, "relatorio.csv");
+    public function excelMovement(Request $request){
+        return Excel::download(new UserMovementeFromView($request->filter), "relatorio.csv");
     }
 }
