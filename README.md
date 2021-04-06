@@ -26,3 +26,10 @@ Rode os comandos:
 
 Comando para rodar teste de login
 <br>php artisan test
+
+Nome do arquivo com as rotas para postman
+raiz do projeto
+MovimentacaoUsuario.postman_collection.json
+
+Documentação
+https://documenter.getpostman.com/view/2473146/TzCS4RCn
