@@ -23,3 +23,6 @@ Rode os comandos:
 <br>composer install
 <br>php artisan key:generate
 <br>php artisan migrate --seed
+
+Comando para rodar teste de login
+<br>php artisan test

@@ -93,9 +93,7 @@ class UserMovementController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $movement  = UserMovement::find($id);
-
         if (!$movement){
             return response()->json([
                 'message'   => 'Nenhum registro Encontrado',
@@ -104,7 +102,6 @@ class UserMovementController extends Controller
         DB::beginTransaction();
         try{
             $movement->update(['reversed' => 1 ]);
-
             DB::commit();
             return response()->json([
                 'message' => 'Movimento estornado com sucesso',

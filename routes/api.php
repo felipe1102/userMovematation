@@ -20,20 +20,15 @@ use App\Http\Controllers\SesionController;
 Route::prefix('v1')->group(function () {
     Route::post("/login", [SesionController::class, 'login']);
 
-
     Route::middleware(['auth:sanctum'])->group(function () {
         Route::post("/logoff", [SesionController::class, 'logoff']);
-
-
         Route::prefix('users')->group(function () {
             Route::get("/report", [UserController::class, 'report']);
-
             Route::post("/", [UserController::class, 'store']);
             Route::get("/", [UserController::class, 'index']);
             Route::get("/{id}", [UserController::class, 'show']);
             Route::put("/{id}", [UserController::class, 'update']);
             Route::delete("/{id}", [UserController::class, 'destroy']);
-
             Route::put("/{id}/balance", [UserController::class, 'changeBalance']);
         });
 
@@ -42,7 +37,6 @@ Route::prefix('v1')->group(function () {
             Route::post("/", [UserMovementController::class, 'store']);
             Route::put("/{id}/reversal", [UserMovementController::class, 'update']);
             Route::delete("/{id}", [UserMovementController::class, 'destroy']);
-
             Route::get("/excel", [UserMovementController::class, 'excelMovement']);
 
         });
