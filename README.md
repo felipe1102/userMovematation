@@ -7,7 +7,7 @@ Requisitos:
 <br>Git
 
 Clone o projeto do repositorio<br>
-https://github.com/felipe1102/userMovimatation
+https://github.com/felipe1102/userMovematation
 
 Após clonado,
 entre na pasta do projeto e duplique o arquivo .env.example renomeando para .env
