@@ -140,7 +140,11 @@ class UserController extends Controller
 
         DB::beginTransaction();
         try{
-            $user->update($request->all());
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'birthday' => $request->birthday
+            ]);
             DB::commit();
             return response()->json([
                 'message' => 'Usuário Editado',

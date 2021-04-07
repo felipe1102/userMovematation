@@ -6,599 +6,1195 @@
 	},
 	"item": [
 		{
-			"name": "Login",
+			"name": "localhost",
 			"item": [
 				{
 					"name": "Login",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"joao@joao.com\",\r\n    \"password\": \"123456\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"joao@joao.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8000/api/v1/login",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Logoff",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/v1/logoff",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"logoff"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Users",
-			"item": [
-				{
-					"name": "Cadastro de usuário",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"user\",\r\n    \"email\": \"user1@user.com\",\r\n    \"birthday\": \"2015-02-11\",\r\n    \"password\": \"123456\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8000/api/v1/users",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						},
-						"description": "Cadastra um usuário\r\nenviar no corpo da requisição um json\r\n{\r\n    \"name\": \"user\",\r\n    \"email\": \"user1@user.com\",\r\n    \"birthday\": \"2015-02-11\",\r\n    \"password\": \"123456\"\r\n}"
-					},
-					"response": []
-				},
-				{
-					"name": "Lista usuários",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "3|OiR6M4SqV1EJJvJihzPhozbAcnpkIgXP9mz4V9ER",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/v1/users",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						},
-						"description": "Lista os usuários cadastrados no sistema"
-					},
-					"response": []
-				},
-				{
-					"name": "Lista usuário especifico",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/v1/users/{id}",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"{id}"
-							]
-						},
-						"description": "Lista um usuário por id\r\n{id} id do usuário que deseja consultar"
-					},
-					"response": []
-				},
-				{
-					"name": "Edita usuário",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"user345\",\r\n    \"email\": \"user@user.com\",\r\n    \"birthday\": \"1995-04-25\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8000/api/v1/users/{id}",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"{id}"
-							]
-						},
-						"description": "Edita um usuário\r\nenviar {id} id do usuário e os dados a serem editados no corpo da requisição em json\r\n{\r\n    \"name\": \"user345\",\r\n    \"email\": \"user@user.com\",\r\n    \"birthday\": \"1995-04-25\"\r\n}"
-					},
-					"response": []
-				},
-				{
-					"name": "Deleta um usuário",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "3|OiR6M4SqV1EJJvJihzPhozbAcnpkIgXP9mz4V9ER",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/v1/users/5",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"5"
-							]
-						},
-						"description": "Deleta um usuário por id\r\n{id} id do usário a ser deletado"
-					},
-					"response": []
-				},
-				{
-					"name": "Relatorio de financeiro do usuário",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8000/api/v1/users/report",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"report"
-							]
-						},
-						"description": "Relatorio financeiro, retorna \r\ntotal de debitos\r\ntotal de creditos\r\nestornados\r\nsaldo inicial"
-					},
-					"response": []
-				},
-				{
-					"name": "Insere um saldo inicial para um usuário",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"value\": 500.00\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8000/api/v1/users/{id}/balance",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"{id}",
-								"balance"
-							]
-						},
-						"description": "Insere um saldo inicial para um usuário \r\nonde {id} e o id do usuário\r\nenviar no corpo da requisição\r\n{\r\n    \"value\": 500.00\r\n}"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Movimentação do usuário",
-			"item": [
-				{
-					"name": "Cadastra uma movimentação",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"value\": 100.00,\r\n    \"type\": \"debit\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8000/api/v1/movements",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"movements"
-							]
-						},
-						"description": "Cadastra uma movimentação para um usuário logado\r\n {\r\n    \"value\": 100.00,\r\n    \"type\": \"debit\"/\"credit\"\r\n }\r\n "
-					},
-					"response": []
-				},
-				{
-					"name": "Recupera movimentações de um usuario",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/v1/movements",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"movements"
-							]
-						},
-						"description": "Recupera uma lista de movimentação do usuário logado"
-					},
-					"response": []
-				},
-				{
-					"name": "Deleta uma movimentação",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/v1/movements/{id}",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"movements",
-								"{id}"
-							]
-						},
-						"description": "Deleta uma movimentação vinculada a um usuário.\r\n{id} id da movimentação do usuário"
-					},
-					"response": []
-				},
-				{
-					"name": "Gera arquivo csv",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
 							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"response": []
 						},
-						"url": {
-							"raw": "localhost:8000/api/v1/movements/excel?filter",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"movements",
-								"excel"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": null
+						{
+							"name": "Logoff",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/v1/logoff",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"logoff"
+									]
 								}
-							]
-						},
-						"description": "Caso queira filtrar enviar filter\r\nexemplos:\r\nbuscar todos: api/v1/movements/excel?filter\r\nbuscar ultimos 30 dias: api/v1/movements/excel?filter=30\r\nbuscar por mês e ano: api/v1/movements/excel?filter=04/21"
-					},
-					"response": []
+							},
+							"response": []
+						}
+					]
 				},
 				{
-					"name": "Estornar uma movimentação",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
+					"name": "Usuários",
+					"item": [
+						{
+							"name": "Cadastro de usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user\",\r\n    \"email\": \"user1@user.com\",\r\n    \"birthday\": \"2015-02-11\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								},
+								"description": "Cadastra um usuário\r\nenviar no corpo da requisição um json\r\n<br>\r\n<br>{\r\n    <br>\"name\": \"user\",\r\n    <br>\"email\": \"user1@user.com\",\r\n    <br>\"birthday\": \"2015-02-11\",\r\n    <br>\"password\": \"123456\"\r\n<br>}"
+							},
+							"response": []
 						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
+						{
+							"name": "Lista usuários",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|OiR6M4SqV1EJJvJihzPhozbAcnpkIgXP9mz4V9ER",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								},
+								"description": "Lista os usuários cadastrados no sistema"
+							},
+							"response": []
+						},
+						{
+							"name": "Lista usuário especifico",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/v1/users/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{id}"
+									]
+								},
+								"description": "Lista um usuário por id\r\n{id} id do usuário que deseja consultar"
+							},
+							"response": []
+						},
+						{
+							"name": "Edita usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user345\",\r\n    \"email\": \"user@user.com\",\r\n    \"birthday\": \"1995-04-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/users/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{id}"
+									]
+								},
+								"description": "Edita um usuário\r\nenviar {id} id do usuário e os dados a serem editados no corpo da requisição em json\r\n<br>{\r\n    <br>\"name\": \"user345\",\r\n    <br>\"email\": \"user@user.com\",\r\n    <br>\"birthday\": \"1995-04-25\"\r\n<br>}"
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta um usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|OiR6M4SqV1EJJvJihzPhozbAcnpkIgXP9mz4V9ER",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/v1/users/5",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"5"
+									]
+								},
+								"description": "Deleta um usuário por id\r\n{id} id do usário a ser deletado"
+							},
+							"response": []
+						},
+						{
+							"name": "Relatorio financeiro do usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/users/report",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"report"
+									]
+								},
+								"description": "Relatorio financeiro, retorna \r\ntotal de debitos\r\ntotal de creditos\r\nestornados\r\nsaldo inicial"
+							},
+							"response": []
+						},
+						{
+							"name": "Insere um saldo inicial para um usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"value\": 500.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/users/{id}/balance",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{id}",
+										"balance"
+									]
+								},
+								"description": "Insere um saldo inicial para um usuário \r\nonde {id} e o id do usuário\r\nenviar no corpo da requisição\r\n<br>{\r\n    <br>\"value\": 500.00\r\n<br>}"
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
 							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
 						},
-						"url": {
-							"raw": "localhost:8000/api/v1/movements/{id}/reversal",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"movements",
-								"{id}",
-								"reversal"
-							]
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Movimentação do usuário",
+					"item": [
+						{
+							"name": "Cadastra uma movimentação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"value\": 100.00,\r\n    \"type\": \"debit\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/movements",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"movements"
+									]
+								},
+								"description": "Cadastra uma movimentação para um usuário logado\r\n <br>{\r\n    <br>\"value\": 100.00,\r\n    <br>\"type\": \"debit\"/\"credit\"\r\n <br>}\r\n "
+							},
+							"response": []
 						},
-						"description": "Estornar uma movimentação de um usuário\r\n{id} se refere ao id da movimentação que deseja estornar."
-					},
-					"response": []
+						{
+							"name": "Recupera movimentações de um usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/v1/movements",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"movements"
+									]
+								},
+								"description": "Recupera uma lista de movimentação do usuário logado"
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta uma movimentação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/v1/movements/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"movements",
+										"{id}"
+									]
+								},
+								"description": "Deleta uma movimentação vinculada a um usuário.\r\n{id} id da movimentação do usuário"
+							},
+							"response": []
+						},
+						{
+							"name": "Gera arquivo csv",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/movements/excel?filter",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"movements",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": null
+										}
+									]
+								},
+								"description": "Caso queira filtrar enviar filter\r\nexemplos:\r\nbuscar todos: api/v1/movements/excel?filter\r\nbuscar ultimos 30 dias: api/v1/movements/excel?filter=30\r\nbuscar por mês e ano: api/v1/movements/excel?filter=04/21"
+							},
+							"response": []
+						},
+						{
+							"name": "Estornar uma movimentação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "localhost:8000/api/v1/movements/{id}/reversal",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"movements",
+										"{id}",
+										"reversal"
+									]
+								},
+								"description": "Estornar uma movimentação de um usuário\r\n{id} se refere ao id da movimentação que deseja estornar."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "produção",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"joao@joao.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/login",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logoff",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/logoff",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logoff"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuários",
+					"item": [
+						{
+							"name": "Cadastro de usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|JYYOdFVC8bbe8B44uRtrI1jQU68APjWzJR3hCiP6",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user\",\r\n    \"email\": \"user1@user.com\",\r\n    \"birthday\": \"2000-02-11\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/users",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								},
+								"description": "Cadastra um usuário\r\nenviar no corpo da requisição um json\r\n<br>\r\n<br>{\r\n    <br>\"name\": \"user\",\r\n    <br>\"email\": \"user1@user.com\",\r\n    <br>\"birthday\": \"2015-02-11\",\r\n    <br>\"password\": \"123456\"\r\n<br>}"
+							},
+							"response": []
+						},
+						{
+							"name": "Lista usuários",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|JYYOdFVC8bbe8B44uRtrI1jQU68APjWzJR3hCiP6",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/users",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lista usuário especifico",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/users/1",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edita um usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|JYYOdFVC8bbe8B44uRtrI1jQU68APjWzJR3hCiP6",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user345\",\r\n    \"email\": \"user@user.com\",\r\n    \"birthday\": \"1995-04-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/users/{id}",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta um usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/users/{id}",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Relatorio financeiro do usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|JYYOdFVC8bbe8B44uRtrI1jQU68APjWzJR3hCiP6",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/users/report",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"report"
+									]
+								},
+								"description": "Relatorio financeiro, retorna \r\ntotal de debitos\r\ntotal de creditos\r\nestornados\r\nsaldo inicial"
+							},
+							"response": []
+						},
+						{
+							"name": "Insere um saldo inicial para um usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "5|ubRaTTv2hXQDm85mi4UFQFnb5NQYE055QYoD284Z",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"value\": 500\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://usermovementation.000webhostapp.com/api/v1/users/3/balance",
+									"protocol": "http",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"3",
+										"balance"
+									]
+								},
+								"description": "Insere um saldo inicial para um usuário \r\nonde {id} e o id do usuário\r\nenviar no corpo da requisição\r\n<br>{\r\n    <br>\"value\": 500.00\r\n<br>}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Movimentação do usuário",
+					"item": [
+						{
+							"name": "Cadastra uma movimentação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "5|ubRaTTv2hXQDm85mi4UFQFnb5NQYE055QYoD284Z",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"value\": 100.00,\r\n    \"type\": \"debit\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/movements",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"movements"
+									]
+								},
+								"description": "Cadastra uma movimentação para um usuário logado\r\n <br>{\r\n    <br>\"value\": 100.00,\r\n    <br>\"type\": \"debit\"/\"credit\"\r\n <br>}"
+							},
+							"response": []
+						},
+						{
+							"name": "Recupera movimentação de um usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "5|ubRaTTv2hXQDm85mi4UFQFnb5NQYE055QYoD284Z",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/movements",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"movements"
+									]
+								},
+								"description": "Recupera movimentação de um usuário"
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta uma movimentação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/movements/{id}",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"movements",
+										"{id}"
+									]
+								},
+								"description": "Deleta uma movimentação vinculada a um usuário.\r\n{id} id da movimentação do usuário"
+							},
+							"response": []
+						},
+						{
+							"name": "Gera arquivo csv",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/movements/excel?filter",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"movements",
+										"excel"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": null
+										}
+									]
+								},
+								"description": "Caso queira filtrar enviar filter\r\nexemplos:\r\nbuscar todos: api/v1/movements/excel?filter\r\nbuscar ultimos 30 dias: api/v1/movements/excel?filter=30\r\nbuscar por mês e ano: api/v1/movements/excel?filter=04/21"
+							},
+							"response": []
+						},
+						{
+							"name": "Estornar uma movimentação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Charset",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://usermovementation.000webhostapp.com/api/v1/movements/{id}/reversal",
+									"protocol": "https",
+									"host": [
+										"usermovementation",
+										"000webhostapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"movements",
+										"{id}",
+										"reversal"
+									]
+								},
+								"description": "Estornar uma movimentação de um usuário\r\n{id} se refere ao id da movimentação que deseja estornar."
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
